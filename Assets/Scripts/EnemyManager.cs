@@ -10,19 +10,12 @@ public class EnemyManager : MonoBehaviour
     private Collider2D coliderComponent;
     private SpriteRenderer rendererComponent;
 
-    public float HowManyEnemies = 1.0f;
-
     void Awake()
     {
         weapons = GetComponentsInChildren<WeaponManager>();
         moves = GetComponent<EnemyMoves>();
         coliderComponent = GetComponent<Collider2D>();
         rendererComponent = GetComponent<SpriteRenderer>();
-
-        //for (int i = 0; i < HowManyEnemies; i++)
-        //{
-        //    Instantiate(gameObject);
-        //}
     }
 
     void Start()
@@ -36,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         {
             weapon.enabled = false;
         }
+
     }
 
     void Update()

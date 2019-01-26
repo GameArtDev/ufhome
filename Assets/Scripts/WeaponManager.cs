@@ -19,7 +19,6 @@ public class WeaponManager : MonoBehaviour
         if (shootCooldown > 0)
         {
             shootCooldown -= Time.deltaTime;
-            print(shootCooldown);
         }
     }
 
