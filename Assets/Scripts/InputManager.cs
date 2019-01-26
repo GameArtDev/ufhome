@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
+
+
         movement = new Vector2(
           speed.x * inputX,
           speed.y * inputY);
@@ -40,9 +42,13 @@ public class InputManager : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space)))
             shipLaser.SetActive(true);
 
+        float rotZ = Mathf.Lerp(20f, -20f, (inputX + 1)/2);
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotZ);
 
         if ((Input.GetKeyUp(KeyCode.Space)))
             shipLaser.SetActive(false);
+
+
     }
 
     void FixedUpdate()
