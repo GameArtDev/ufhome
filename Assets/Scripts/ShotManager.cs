@@ -12,4 +12,6 @@ public class ShotManager : MonoBehaviour
     {
         Destroy(gameObject, 20);
     }
+
+
 }

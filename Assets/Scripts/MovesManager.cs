@@ -20,4 +20,10 @@ public class MovesManager : MonoBehaviour
         float y = amplitudeY * Mathf.Sin(omegaY * index);
         transform.localPosition = new Vector3(x, y, 0);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
+    }
 }

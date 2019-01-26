@@ -10,10 +10,14 @@ public class InputManager : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
     public GameObject shipLaser;
+    public float health = 100;
+    public int damageRate;
 
 
     void Update()
     {
+        if (health == 0)
+            Destroy(gameObject);
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
@@ -44,7 +48,14 @@ public class InputManager : MonoBehaviour
     }
 
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "bullet")
+            health -= 1*damageRate;
 
+        if (other.gameObject.tag == "enemy")
+            Destroy(gameObject);
+    }
 
 
 }
