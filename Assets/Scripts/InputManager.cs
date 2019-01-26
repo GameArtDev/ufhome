@@ -5,31 +5,36 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public float Horizontal_Start_Position = 3.0f;
-    public float Horizontal_Range = 0.0f;
-    public float Vertical_Range = 0.0f;
-    private Rigidbody2D rb2d;  
-    
-    void Start()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
+    public Vector2 speed = new Vector2(25, 25);
 
-    // Update is called once per frame
+    private Vector2 movement;
+    private Rigidbody2D rigidBodyComponent;
+
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal") - Horizontal_Start_Position;
-        float moveVertical = Input.GetAxis("Vertical");
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal * Horizontal_Range, moveVertical * Vertical_Range);
+        movement = new Vector2(
+          speed.x * inputX,
+          speed.y * inputY);
+ 
+        var dist = (transform.position - Camera.main.transform.position).z;
+        var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
+        var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
+        var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
 
-        transform.position = movement;
-        rb2d.AddForce(movement * speed);
+        transform.position = new Vector3(
+                  Mathf.Clamp(transform.position.x, leftBorder + 2, rightBorder - 2),
+                  Mathf.Clamp(transform.position.y, topBorder + 1, bottomBorder - 1),
+                  transform.position.z
+                  );
     }
 
     void FixedUpdate()
     {
-
+        if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
+        rigidBodyComponent.velocity = movement;
     }
 }
