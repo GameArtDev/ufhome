@@ -7,18 +7,22 @@ public class EnemyManager : MonoBehaviour
     private bool hasSpawn;
     private EnemyMoves moves;
     private WeaponManager[] weapons;
+    private Collider2D coliderComponent;
+    private SpriteRenderer rendererComponent;
 
     void Awake()
     {
         weapons = GetComponentsInChildren<WeaponManager>();
         moves = GetComponent<EnemyMoves>();
+        coliderComponent = GetComponent<Collider2D>();
+        rendererComponent = GetComponent<SpriteRenderer>();
     }
 
     void Start()
     {
         hasSpawn = false;
-
-        GetComponent<Collider2D>().enabled = false;
+        coliderComponent.enabled = true;
+        //GetComponent<Collider2D>().enabled = false;
         moves.enabled = false;
 
         foreach (WeaponManager weapon in weapons)

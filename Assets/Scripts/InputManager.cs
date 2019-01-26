@@ -32,12 +32,9 @@ public class InputManager : MonoBehaviour
                   Mathf.Clamp(transform.position.y, topBorder + 1, bottomBorder - 1),
                   transform.position.z
                   );
+
         if ((Input.GetKeyDown(KeyCode.Space)))
-
             shipLaser.SetActive(true);
-        if (Input.GetKeyUp(KeyCode.Space))
-            shipLaser.SetActive(false);
-
     }
 
     void FixedUpdate()
