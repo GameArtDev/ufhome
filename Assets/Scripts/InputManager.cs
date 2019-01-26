@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
 
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
+    public GameObject shipLaser;
+
 
     void Update()
     {
@@ -30,6 +32,12 @@ public class InputManager : MonoBehaviour
                   Mathf.Clamp(transform.position.y, topBorder + 1, bottomBorder - 1),
                   transform.position.z
                   );
+        if ((Input.GetKeyDown(KeyCode.Space)))
+
+            shipLaser.SetActive(true);
+        if (Input.GetKeyUp(KeyCode.Space))
+            shipLaser.SetActive(false);
+
     }
 
     void FixedUpdate()
@@ -37,4 +45,9 @@ public class InputManager : MonoBehaviour
         if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
         rigidBodyComponent.velocity = movement;
     }
+
+
+
+
+
 }
