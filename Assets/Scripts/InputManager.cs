@@ -39,6 +39,10 @@ public class InputManager : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Space)))
             shipLaser.SetActive(true);
+
+
+        if ((Input.GetKeyUp(KeyCode.Space)))
+            shipLaser.SetActive(false);
     }
 
     void FixedUpdate()
