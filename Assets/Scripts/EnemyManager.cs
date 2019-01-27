@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     private WeaponManager[] weapons;
     private Collider2D coliderComponent;
     private SpriteRenderer rendererComponent;
+    public float destroyTime;
 
     void Awake()
     {
@@ -53,7 +54,7 @@ public class EnemyManager : MonoBehaviour
 
             if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false)
             {
-                Destroy(gameObject);
+                Destroy(gameObject, destroyTime);
             }
         }
     }
