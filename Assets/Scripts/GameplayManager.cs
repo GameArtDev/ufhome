@@ -9,6 +9,7 @@ public class GameplayManager : MonoBehaviour
     public GameObject player;
     public float numberOfUfos = 1;
     public float numberOfEnemies = 1;
+    int iterator = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +40,11 @@ public class GameplayManager : MonoBehaviour
         for (int i = 0; i < numberOfUfos; i++)
         {
             MovesManager moves = ufo.GetComponent(typeof(MovesManager)) as MovesManager;
-            moves.startPosition = new Vector3(
-                Random.Range(ContenxtInfo.LeftBorder, ContenxtInfo.RightBorder),
-                Random.Range(-5.4f, -4.0f)
-                , 0);
+                moves.startPosition = new Vector3(
+                    Random.Range(ContenxtInfo.LeftBorder, ContenxtInfo.RightBorder),
+                    Random.Range(-5.4f, -4.0f)
+                    , 0);
+
             ufo.tag = "ufo";
             ufo.transform.rotation = new Quaternion(0, 0, 0, 0);
             Instantiate(ufo);
@@ -52,17 +54,16 @@ public class GameplayManager : MonoBehaviour
     void GenerateEnemy()
     {
         for (int i = 0; i < numberOfEnemies; i++)
-        {
-            float bound = new System.Random().Next((int)ContenxtInfo.LeftBorder, (int)ContenxtInfo.RightBorder);
-
+        {           
             enemy.transform.position = new Vector3(
-                ContenxtInfo.RightBorder,
-                Random.Range(-3.0f, ContenxtInfo.BottomBorder),
+                ContenxtInfo.RightBorder + Random.Range(0,15),
+                Random.Range(-3.0f, 5.0f),
                 0
             );
 
             enemy.transform.rotation = new Quaternion(0, 0, 0, 0);
             Instantiate(enemy);
+            iterator = 100;
         }
     }
 }

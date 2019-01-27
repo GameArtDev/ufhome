@@ -41,6 +41,11 @@ public class EnemyManager : MonoBehaviour
             {
                 Spawn();
             }
+            else
+            {
+                GetComponent<Collider2D>().enabled = true;
+                moves.enabled = true;
+            }
         }
         else
         {
@@ -51,14 +56,17 @@ public class EnemyManager : MonoBehaviour
                     float playerHeight = 1.24f;
 
                     if (GameObject.FindGameObjectWithTag("Player") != null)
+                    {
                         playerHeight = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>().bounds.size.y;
 
-                    float playerUppeberBound = GameObject.FindGameObjectWithTag("Player").transform.position.y + (playerHeight / 2);
-                    float playerLowerBoud = GameObject.FindGameObjectWithTag("Player").transform.position.y - (playerHeight/2);
+                        float playerUppeberBound = GameObject.FindGameObjectWithTag("Player").transform.position.y + (playerHeight / 2);
+                        float playerLowerBoud = GameObject.FindGameObjectWithTag("Player").transform.position.y - (playerHeight / 2);
 
-                    if (transform.position.y >= playerLowerBoud && transform.position.y <= playerUppeberBound)
-                    {
-                        weapon.Attack(true);
+
+                        if (transform.position.y >= playerLowerBoud && transform.position.y <= playerUppeberBound)
+                        {
+                            weapon.Attack(true);
+                        }
                     }
                 }
             }
