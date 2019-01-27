@@ -99,9 +99,11 @@ MonoBehaviour:
   amplitudeY: 0.8
   omegaX: 1
   omegaY: 5
+  deathEffect: {fileID: 1756976233663668795, guid: cba8da8a64ae3f547aaa18bfa8cfa5f9,
+    type: 3}
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
-  startPosition: {x: 0.95776176, y: -4.8091974, z: 0}
+  startPosition: {x: 3.054226, y: -4.509959, z: 0}
 --- !u!50 &4117397646863623023
 Rigidbody2D:
   serializedVersion: 4
