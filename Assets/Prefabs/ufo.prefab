@@ -101,7 +101,7 @@ MonoBehaviour:
   omegaY: 5
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
-  startPosition: {x: 26.75, y: -1.7, z: 0}
+  startPosition: {x: -4.7134705, y: -4.190838, z: 0}
 --- !u!50 &4117397646863623023
 Rigidbody2D:
   serializedVersion: 4

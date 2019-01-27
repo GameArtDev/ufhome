@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour
     public float health = 100;
     public int damageRate;
 
-
     void Update()
     {
         if (health == 0)
@@ -32,6 +31,11 @@ public class InputManager : MonoBehaviour
         var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
         var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
         var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
+
+        ContenxtInfo.LeftBorder = leftBorder;
+        ContenxtInfo.RightBorder = rightBorder;
+        ContenxtInfo.TopBorder = topBorder;
+        ContenxtInfo.BottomBorder = bottomBorder;
 
         transform.position = new Vector3(
                   Mathf.Clamp(transform.position.x, leftBorder + 2, rightBorder - 2),
