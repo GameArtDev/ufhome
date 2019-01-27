@@ -12,11 +12,17 @@ public class InputManager : MonoBehaviour
     public GameObject shipLaser;
     public float health = 100;
     public int damageRate;
+    public GameObject explosionEffect;
+    public GameObject deathEffect;
 
     void Update()
     {
         if (health == 0)
+        {
             Destroy(gameObject);
+            deathEffect.transform.position = transform.position;
+            Instantiate(deathEffect);
+                    }
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
@@ -65,10 +71,15 @@ public class InputManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "bullet")
-            health -= 1*damageRate;
-
+        {
+            Instantiate(explosionEffect);
+            health -= 1 * damageRate;
+        }
         if (other.gameObject.tag == "enemy")
+        {
             Destroy(gameObject);
+            Instantiate(deathEffect);
+        }
     }
 
 
