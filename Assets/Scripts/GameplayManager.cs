@@ -6,7 +6,7 @@ public class GameplayManager : MonoBehaviour
 {
     public GameObject ufo;
     public GameObject enemy;
-    public GameObject player;
+    public GameObject playerPrefab;
     public float numberOfUfos = 1;
     public float numberOfEnemies = 1;
 
@@ -64,5 +64,11 @@ public class GameplayManager : MonoBehaviour
             enemy.transform.rotation = new Quaternion(0, 0, 0, 0);
             Instantiate(enemy);
         }
+    }
+
+public static void GeneratePlayer()
+    {
+      //  playerPrefab.transform.position = new Vector3(-15, -0.5F, 0);
+       // Instantiate(playerPrefab);
     }
 }
