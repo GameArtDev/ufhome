@@ -101,7 +101,7 @@ MonoBehaviour:
   omegaY: 5
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
-  startPosition: {x: -20.07681, y: -4.9170694, z: 0}
+  startPosition: {x: 0.95776176, y: -4.8091974, z: 0}
 --- !u!50 &4117397646863623023
 Rigidbody2D:
   serializedVersion: 4
@@ -134,8 +134,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d8a00f470f0cd9c43aa253ce46bb57c3, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.609
+  m_PlayOnAwake: 0
+  m_Volume: 0.727
   m_Pitch: 1
   Loop: 0
   Mute: 0
