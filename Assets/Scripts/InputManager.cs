@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
     public int damageRate;
     public GameObject explosionEffect;
     public GameObject deathEffect;
+    public float xOffset = 2.0f;
+    public float yOffset = 7.0f;
 
     void Update()
     {
@@ -44,8 +46,8 @@ public class InputManager : MonoBehaviour
         ContenxtInfo.BottomBorder = bottomBorder;
 
         transform.position = new Vector3(
-                  Mathf.Clamp(transform.position.x, leftBorder + 2, rightBorder - 2),
-                  Mathf.Clamp(transform.position.y, topBorder + 1, bottomBorder - 1),
+                  Mathf.Clamp(transform.position.x, leftBorder + xOffset, rightBorder - xOffset),
+                  Mathf.Clamp(transform.position.y, topBorder + yOffset, bottomBorder - yOffset),
                   transform.position.z
                   );
 

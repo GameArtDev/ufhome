@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMoves : MonoBehaviour
+public class EnemyMoves : MonoBehaviour
 {
     public Vector2 speed = new Vector2(10, 10);
 
