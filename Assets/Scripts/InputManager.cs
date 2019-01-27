@@ -74,6 +74,7 @@ public class InputManager : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
+            deathEffect.transform.position = transform.position;
             Instantiate(explosionEffect);
             health -= 1 * damageRate;
         }
