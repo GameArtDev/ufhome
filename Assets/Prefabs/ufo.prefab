@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4117397646863623023}
   - component: {fileID: 4117397646863623008}
   m_Layer: 0
-  m_Name: disco
-  m_TagString: playerTrigger
+  m_Name: ufo
+  m_TagString: ufo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,12 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfffddbdd343e8946bd7ae1227997587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitudeX: 10
-  amplitudeY: 5
+  amplitudeX: 1
+  amplitudeY: 0.8
   omegaX: 1
   omegaY: 5
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
+  startPosition: {x: 26.75, y: -1.7, z: 0}
 --- !u!50 &4117397646863623023
 Rigidbody2D:
   serializedVersion: 4
