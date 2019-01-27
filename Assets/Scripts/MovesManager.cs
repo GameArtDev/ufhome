@@ -9,6 +9,8 @@ public class MovesManager : MonoBehaviour
     public float omegaX = 1.0f;
     public float omegaY = 5.0f;
     float index;
+    AudioSource myAudiosource;
+
 
     public Vector2 speed = new Vector2(10, 10);
     public Vector2 direction = new Vector2(-1, 0);
@@ -16,7 +18,7 @@ public class MovesManager : MonoBehaviour
 
     public void Start()
     {
-        
+        myAudiosource = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -30,6 +32,9 @@ public class MovesManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
+        {
+            myAudiosource.Play();
             Destroy(gameObject);
+        }
     }
 }
