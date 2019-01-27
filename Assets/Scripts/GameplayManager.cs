@@ -10,9 +10,7 @@ public class GameplayManager : MonoBehaviour
     public GameObject playerPrefab;
     public float numberOfUfos = 1;
     public float numberOfEnemies = 1;
-    int iterator = 100;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +34,7 @@ public class GameplayManager : MonoBehaviour
             GenerateEnemy();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("test_scene");
-        }
+
     }
 
     void GenerateUfo()
@@ -70,7 +65,6 @@ public class GameplayManager : MonoBehaviour
 
             enemy.transform.rotation = new Quaternion(0, 0, 0, 0);
             Instantiate(enemy);
-            iterator = 100;
         }
     }
 

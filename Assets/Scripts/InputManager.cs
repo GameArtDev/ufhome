@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -26,8 +26,9 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject);
             deathEffect.transform.position = transform.position;
             Instantiate(deathEffect);
-            
-           // GameplayManager.GeneratePlayer();
+            SceneManager.LoadScene("test_scene");
+
+            // GameplayManager.GeneratePlayer();
         }
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
@@ -55,16 +56,14 @@ public class InputManager : MonoBehaviour
                   transform.position.z
                   );
 
-        if ((Input.GetKeyDown(KeyCode.Space)))
+        if (/*(Input.GetKeyDown(KeyCode.Space))  ||*/ Input.GetButtonDown("Jump"))
             shipLaser.SetActive(true);
 
         float rotZ = Mathf.Lerp(20f, -20f, (inputX + 1)/2);
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotZ);
 
-        if ((Input.GetKeyUp(KeyCode.Space)) || Input.GetButton("Jump"))
+        if (/*(Input.GetKeyUp(KeyCode.Space))*/ Input.GetButtonUp("Jump"))
             shipLaser.SetActive(false);
-
-
     }
 
     void FixedUpdate()
@@ -87,6 +86,7 @@ public class InputManager : MonoBehaviour
             deathEffect.transform.position = transform.position;
             Instantiate(deathEffect);
             Destroy(gameObject);
+            SceneManager.LoadScene("test_scene");
         }
     }
 

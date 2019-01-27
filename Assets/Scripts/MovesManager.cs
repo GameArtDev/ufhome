@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovesManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class MovesManager : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             Instantiate(deathEffect);
+            SceneManager.LoadScene("test_scene");
         }
     }
 
