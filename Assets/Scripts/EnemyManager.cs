@@ -48,7 +48,15 @@ public class EnemyManager : MonoBehaviour
             {
                 if (weapon != null && weapon.enabled && weapon.CanAttack)
                 {
-                    weapon.Attack(true);
+                    float playerHeight = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>().bounds.size.y;
+
+                    float playerUppeberBound = GameObject.FindGameObjectWithTag("Player").transform.position.y + (playerHeight / 2);
+                    float playerLowerBoud = GameObject.FindGameObjectWithTag("Player").transform.position.y - (playerHeight/2);
+
+                    if (transform.position.y >= playerLowerBoud && transform.position.y <= playerUppeberBound)
+                    {
+                        weapon.Attack(true);
+                    }
                 }
             }
 

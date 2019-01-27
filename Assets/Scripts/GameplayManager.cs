@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public GameObject ufo;
-    List<GameObject> ufos = new List<GameObject>();
+    public GameObject enemy;
+    public GameObject player;
     public float numberOfUfos = 1;
-    
+    public float numberOfEnemies = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,16 @@ public class GameplayManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("ufo").Length == 0)
         {
-            GenerateUfo(numberOfUfos);
+            GenerateUfo();
+        }
+
+        if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+        {
+            GenerateEnemy();
         }
     }
 
-    void GenerateUfo(float numOfUfo)
+    void GenerateUfo()
     {
         for (int i = 0; i < numberOfUfos; i++)
         {
@@ -39,6 +46,23 @@ public class GameplayManager : MonoBehaviour
             ufo.tag = "ufo";
             ufo.transform.rotation = new Quaternion(0, 0, 0, 0);
             Instantiate(ufo);
+        }
+    }
+
+    void GenerateEnemy()
+    {
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            float bound = new System.Random().Next((int)ContenxtInfo.LeftBorder, (int)ContenxtInfo.RightBorder);
+
+            enemy.transform.position = new Vector3(
+                ContenxtInfo.RightBorder,
+                Random.Range(-3.0f, ContenxtInfo.BottomBorder),
+                0
+            );
+
+            enemy.transform.rotation = new Quaternion(0, 0, 0, 0);
+            Instantiate(enemy);
         }
     }
 }
