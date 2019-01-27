@@ -10,6 +10,7 @@ public class MovesManager : MonoBehaviour
     public float omegaY = 5.0f;
     float index;
     AudioSource myAudiosource;
+    public GameObject deathEffect;
 
 
     public Vector2 speed = new Vector2(10, 10);
@@ -31,10 +32,23 @@ public class MovesManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "laser")
         {
             myAudiosource.Play();
-            Destroy(gameObject);
+            CallDestroy();
         }
+
+        if (other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            Instantiate(deathEffect);
+        }
+    }
+
+    void CallDestroy()
+    {
+        Destroy(gameObject, 0.5F);
+
     }
 }
