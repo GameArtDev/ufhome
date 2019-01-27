@@ -40,6 +40,7 @@ public class MovesManager : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            deathEffect.transform.position = transform.position;
             Destroy(gameObject);
             Destroy(other.gameObject);
             Instantiate(deathEffect);

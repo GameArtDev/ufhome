@@ -16,6 +16,8 @@ public class InputManager : MonoBehaviour
     public GameObject deathEffect;
     public float xOffset = 2.0f;
     public float yOffset = 7.0f;
+    public GameObject playerPrefab;
+
 
     void Update()
     {
@@ -24,7 +26,9 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject);
             deathEffect.transform.position = transform.position;
             Instantiate(deathEffect);
-                    }
+            
+           // GameplayManager.GeneratePlayer();
+        }
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
@@ -74,13 +78,15 @@ public class InputManager : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
+            explosionEffect.transform.position = transform.position;
             Instantiate(explosionEffect);
             health -= 1 * damageRate;
         }
         if (other.gameObject.tag == "enemy")
         {
-            Destroy(gameObject);
+            deathEffect.transform.position = transform.position;
             Instantiate(deathEffect);
+            Destroy(gameObject);
         }
     }
 

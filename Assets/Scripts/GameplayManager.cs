@@ -6,7 +6,7 @@ public class GameplayManager : MonoBehaviour
 {
     public GameObject ufo;
     public GameObject enemy;
-    public GameObject player;
+    public GameObject playerPrefab;
     public float numberOfUfos = 1;
     public float numberOfEnemies = 1;
     int iterator = 100;
@@ -65,5 +65,11 @@ public class GameplayManager : MonoBehaviour
             Instantiate(enemy);
             iterator = 100;
         }
+    }
+
+public static void GeneratePlayer()
+    {
+      //  playerPrefab.transform.position = new Vector3(-15, -0.5F, 0);
+       // Instantiate(playerPrefab);
     }
 }

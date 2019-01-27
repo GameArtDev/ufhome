@@ -103,7 +103,7 @@ MonoBehaviour:
     type: 3}
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
-  startPosition: {x: -2.3976393, y: -4.4446745, z: 0}
+  startPosition: {x: -14.684857, y: -4.623418, z: 0}
 --- !u!50 &4117397646863623023
 Rigidbody2D:
   serializedVersion: 4
