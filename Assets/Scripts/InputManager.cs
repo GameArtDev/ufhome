@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
         float rotZ = Mathf.Lerp(20f, -20f, (inputX + 1)/2);
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotZ);
 
-        if ((Input.GetKeyUp(KeyCode.Space)))
+        if ((Input.GetKeyUp(KeyCode.Space)) || Input.GetButton("Jump"))
             shipLaser.SetActive(false);
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameplayManager : MonoBehaviour
     public float numberOfUfos = 1;
     public float numberOfEnemies = 1;
     int iterator = 100;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,11 @@ public class GameplayManager : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
         {
             GenerateEnemy();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("test_scene");
         }
     }
 
@@ -67,7 +74,7 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-public static void GeneratePlayer()
+    public static void GeneratePlayer()
     {
       //  playerPrefab.transform.position = new Vector3(-15, -0.5F, 0);
        // Instantiate(playerPrefab);
